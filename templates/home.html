@@ -9,14 +9,18 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}?now"U"/>
 </head>
 <body>
-    <h1>Привет! Это мой магазин!</h1>
-    <h2>Поиск заказов покупателя </h2>
-    <form action="{% url 'search' %}" method="GET">
-        {% csrf_token %}
-        <input name="q" type="text" placeholder="Введите имя или фамилию...">
-    </form>
-<!--<img src="{% static 'img/django.jpg' %}" alt="Django">-->
+  {% if user.is_authenticated %}
+    <h1>Привет, {{ user.username }} ! Это мой магазин!</h1>
+  {% else %}
+    <p>Вы не вошли на сайт</p>
+    <a href="{% url 'login' %}">Войти</a>
+  {% endif %}
+  <h2>Поиск заказов покупателя </h2>
+  <form action="{% url 'search' %}" method="GET">
+    {% csrf_token %}
+    <input name="q" type="text" placeholder="Введите имя или фамилию...">
+  </form>
 </body>
-<script src="{% static 'js/script.js' %}" ></script>
 {% endblock content %}
+<script src="{% static 'js/script.js' %}" ></script>
 </html>
