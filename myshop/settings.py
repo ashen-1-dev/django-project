@@ -35,6 +35,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
 CART_SESSION_ID = 'cart'
 
 
