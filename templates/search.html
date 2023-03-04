@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
 </head>
 <body>
-    <h1>Список заказов для:</h1>
+    {% if list_of_all_orders.count == 0 %}
+        <h1>Не найдено</h1>
+    {% else %}
+        <h1>Список заказов для:</h1>
     <h2>{{ list_of_all_orders.0.customer }}</h2>
     <table>
         <tr>
@@ -23,6 +26,8 @@
        </tr>
         {% endfor %}
     </table>
+    {% endif %}
+
 {% endblock content %}
 </body>
 <script src="{% static 'js/script.js' %}" ></script>
