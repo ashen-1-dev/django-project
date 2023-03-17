@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+</head>
+<body>
+  <form method="post">
+    {% csrf_token %}
+    <label for="{{ form.email.id_for_label }}">Почта:</label>
+    {{ form.username }}
+    <label for="{{ form.password.id_for_label }}">Пароль:</label>
+    {{ form.password }}
+    <button type="submit">Войти</button>
+  </form>
+</body>
+</html>
+{% endblock content %}

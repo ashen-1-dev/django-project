@@ -15,7 +15,13 @@
         <a href="{% url 'shop:all_product_list'%}">Все продукты</a>
       </div>
       <div id="user-header">
-        User
+        {% if user.is_authenticated %}
+            <p>Привет, {{ user.first_name }}!</p>
+            <a href="{% url 'logout'%}">Выйти</a>
+        {% else %}
+            <p>Вы не вошли на сайт</p>
+            <a href="{% url 'login' %}">Войти</a>
+        {% endif %}
       </div>
       <div id="cart-header">
         <div class="cart">

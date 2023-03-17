@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?now"U"/>
+</head>
+<body>
+  <h2>Регистрация нового пользователя</h2>
+  <form method="post">
+    {% csrf_token %}
+      <label for="{{ form.email.id_for_label }}">Почта:</label>
+    {{ form.email }}
+    <label for="{{ form.password1.id_for_label }}">Пароль:</label>
+    {{ form.password1 }}
+    <label for="{{ form.password2.id_for_label }}">Подтвердите пароль:</label>
+    {{ form.password2 }}
+      <label for="{{ form.first_name.id_for_label }}">Имя:</label>
+    {{ form.first_name }}
+      <label for="{{ form.last_name.id_for_label }}">Фамилия:</label>
+    {{ form.last_name }}
+      <label for="{{ form.last_name.id_for_label }}">Никнейм:</label>
+    {{ form.nick }}
+    <button type="submit">Зарегистрировать</button>
+  </form>
+{% endblock content %}
+</body>
+</html>
