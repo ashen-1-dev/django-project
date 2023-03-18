@@ -12,11 +12,11 @@ class CustomUserAdmin(DjangoUserAdmin):
     create_form = CustomUserCreationForm
     change_form = CustomUserChangeForm
     # Fields to display on the main Admin/Users panel
-    list_display = ('email', 'first_name', 'last_name', 'nick')
-    search_fields = ('email', 'first_name', 'last_name', 'nick')
+    list_display = ('email', 'first_name', 'last_name',)
+    search_fields = ('email', 'first_name', 'last_name',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (_('Personal info'), {'fields': ('first_name', 'last_name', 'nick')}),
+        (_('Personal info'), {'fields': ('first_name', 'last_name')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),

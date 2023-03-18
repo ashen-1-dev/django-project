@@ -15,7 +15,6 @@ class CustomUser(AbstractUser):
   REQUIRED_FIELDS = []
   objects = CustomUserManager()
 
-  nick = models.CharField(_('nickname'), max_length=128, unique=True)
 
   def get_absolute_url(self):
     return reverse('user_detail', kwargs={'pk': self.pk})

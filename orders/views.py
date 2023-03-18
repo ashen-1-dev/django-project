@@ -17,5 +17,10 @@ def order_create(request):
       order_created.delay(order.id)
       return render(request, 'orders/created.html', {'order': order})
   else:
-    form = OrderCreateForm()
+    user = request.user
+    if not user.is_anonymous:
+      form = OrderCreateForm(initial={'first_name': user.first_name, 'last_name': user.last_name, 'email': user.email})
+    else:
+      form = OrderCreateForm()
+
   return render(request, 'orders/create.html', {'cart': cart, 'form': form})
