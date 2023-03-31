@@ -1,6 +1,5 @@
 from dotenv import load_dotenv
 
-
 """
 Django settings for myshop project.
 
@@ -17,12 +16,10 @@ from dotenv import load_dotenv
 
 from pathlib import Path
 
-
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -35,10 +32,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 AUTH_USER_MODEL = 'accounts.CustomUser'
 CART_SESSION_ID = 'cart'
-
 
 # Application definition
 
@@ -91,9 +86,7 @@ STATICFILES_FINDERS = [
     'sass_processor.finders.CssFinder',
 ]
 
-
 WSGI_APPLICATION = 'myshop.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -108,7 +101,6 @@ DATABASES = {
         'PORT': os.getenv('DATABASE_PORT'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -128,7 +120,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -139,7 +130,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -155,12 +145,18 @@ SASS_PROCESSOR_ROOT = BASE_DIR / 'static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.getenv('EMAIL_HOST')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_PORT = os.getenv('EMAIL_PORT')
+# EMAIL_HOST = os.getenv('EMAIL_HOST')
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+# EMAIL_PORT = os.getenv('EMAIL_PORT')
+# EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
+# EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL')
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_PASSWORD = 'zyizjjtglvbkctsp'
+EMAIL_HOST_USER = 'Nik8952154@yandex.ru'
+EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Корзина {% endblock %}
+{% block content %}
+    <style>
+    td {
+        padding: 0 25px;
+    }
+    </style>
+    {% if  orders|length == 0 %}
+        <h2>Заказы отсутствуют</h2>
+        {% else %}
+        <h1>История заказов:</h1>
+        <table>
+            <tr>
+                <th>Номер заказа</th>
+                <th>Продукт</th>
+                <th>Дата заказа</th>
+                <th>Покупатель</th>
+            </tr>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.product.product_name }}</td>
+                <td>{{ order.order.created }}</td>
+                <td>{{ order.order.last_name }} {{ order.order.first_name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+{% endblock content %}
